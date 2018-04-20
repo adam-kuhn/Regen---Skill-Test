@@ -1,7 +1,6 @@
 function handleFiles (files) {
   // check for the File API support
   if (window.FileReader) {
-    console.log('here')
     getAsText(files[0])
   } else {
     alert('FileReader is not supported in this browser')
@@ -41,7 +40,7 @@ function processData (csv) {
   console.log(julyData)
   const julyRainyDays = rainyDays(julyData)
   const avgJulyTemp = avgTemp(julyData)
-  console.log(avgJulyTemp)
+  console.log('avg month temp', avgJulyTemp)
 }
 
 function errorHandler (evt) {
@@ -57,14 +56,17 @@ function getJulyData (allData) {
 }
 
 function rainyDays (monthData) {
-  const rainData = monthData.map(rain => {
-    return Number(rain[2])
+  const rainyDays = monthData.filter(rainFall => {
+    return Number(rainFall[2]) >= 2
   })
-  console.log('all rain', rainData)
-  const rainyDays = rainData.filter(rainFall => {
-    return rainFall >= 2
+  const nonRainyDays = monthData.filter(rainFall => {
+    return Number(rainFall[2]) < 2
   })
+  const rainyAvgTemp = avgTemp(rainyDays)
+  const nonRainyAvgTemp = avgTemp(nonRainyDays)
   console.log('number of rainy days', rainyDays.length)
+  console.log('rainy avg temp', rainyAvgTemp)
+  console.log('non rainy avg temp', nonRainyAvgTemp)
   return rainyDays.length
 }
 
@@ -76,5 +78,4 @@ function avgTemp (monthData) {
     return a + b
   })
   return sum / tempData.length
-  console.log('temp sum', sum)
 }
