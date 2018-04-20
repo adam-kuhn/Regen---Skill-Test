@@ -1,0 +1,28 @@
+Code challenge (30 mins)
+The attached CSV file contains a table with 3 columns, containing date, rainfall and temperature data for a site over the period of a single calendar month, July 2017.
+
+The format of the data is as follows:
+* date - ISO 8601 format, eg '2017-11-01'
+* rainfall - expressed in mm
+* temperature - expressed in degrees C
+
+Your task is write a short program in any language you choose to parse this data and produce a summary report, with the following information:
+* number of rainy days in the month
+* Average temperature for month
+
+
+A rainy day is defined as a day on which >= 2mm of rain was recorded.
+
+Optional:
+* Average temperature on rainy days in the month
+* Average temperature on non rainy days in the month
+
+ For merit, the following should be noted about the CSV input data, and handled in your program:
+* Explain what you are trying to do in comments on the code
+* Some records exist outside the calendar month of July 2017, and should be excluded
+* Some days no data may be recorded, so the percentage and average total should reflect this
+* Some duplicate records may exist in the data, and should be excluded
+
+Optional Creative Challenge (10 minutes)
+
+Create a ‘mockup’ of the summary report (pdf, jpeg, etc) to present the information above in any way you please. 
