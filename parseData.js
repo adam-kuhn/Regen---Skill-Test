@@ -22,6 +22,12 @@ function loadHandler (event) {
   processData(csv)
 }
 
+function errorHandler (evt) {
+  if (evt.target.error.name === 'NotReadableError') {
+    alert('Can not read file!')
+  }
+}
+
 function processData (csv) {
   // convert the CSV to a workable form
   const allTextLines = csv.split(/\r\n|\n/)
@@ -43,12 +49,6 @@ function processData (csv) {
   // display calculated values on the HTML page
   document.getElementById('rainy-days').innerHTML = rainyDays(julyData)
   document.getElementById('avg-temp').innerHTML = avgTemp(julyData)
-}
-
-function errorHandler (evt) {
-  if (evt.target.error.name === 'NotReadableError') {
-    alert('Can not read file!')
-  }
 }
 
 function getJulyData (allData) {
