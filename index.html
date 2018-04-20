@@ -9,7 +9,25 @@
 
 </head>
 <body>
-  <p>h</p>
+  <h1>CSV Data Parser</h1>
+  <p>Select the file you wish to process below.</p>
   <input type='file' id='csvFileInput' onChange='handleFiles(this.files)' accept='.csv'>
+  <h3>Rainfall Data: July</h3>
+  <div>
+    <h4>Number of Rainy Days:</h4>
+    <p id='rainy-days'>N/A</p>
+  </div>
+  <div>
+    <h4>July Avg Temperature:</h4>
+    <p id='avg-temp'>N/A</p>
+  </div>
+  <div>
+    <h4>Avg Temp on Rainy Days:</h4>
+    <p id='rainy-temp'>N/A</p>
+  </div>
+  <div>
+     <h4>Avg Temp on Non-Rainy Days:</h4>
+     <p id='non-rainy-temp'>N/A</p>
+  </div>
 </body>
 </html>

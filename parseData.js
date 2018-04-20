@@ -37,10 +37,8 @@ function processData (csv) {
   })
   completeFile.shift()
   const julyData = getJulyData(completeFile)
-  console.log(julyData)
-  const julyRainyDays = rainyDays(julyData)
-  const avgJulyTemp = avgTemp(julyData)
-  console.log('avg month temp', avgJulyTemp)
+  document.getElementById('rainy-days').innerHTML = rainyDays(julyData)
+  document.getElementById('avg-temp').innerHTML = avgTemp(julyData)
 }
 
 function errorHandler (evt) {
@@ -62,11 +60,9 @@ function rainyDays (monthData) {
   const nonRainyDays = monthData.filter(rainFall => {
     return Number(rainFall[2]) < 2
   })
-  const rainyAvgTemp = avgTemp(rainyDays)
-  const nonRainyAvgTemp = avgTemp(nonRainyDays)
-  console.log('number of rainy days', rainyDays.length)
-  console.log('rainy avg temp', rainyAvgTemp)
-  console.log('non rainy avg temp', nonRainyAvgTemp)
+  document.getElementById('rainy-temp').innerHTML = avgTemp(rainyDays)
+  document.getElementById('non-rainy-temp').innerHTML = avgTemp(nonRainyDays)
+
   return rainyDays.length
 }
 
