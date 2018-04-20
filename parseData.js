@@ -41,7 +41,7 @@ function processData (csv) {
   console.log(julyData)
   const julyRainyDays = rainyDays(julyData)
   const avgJulyTemp = avgTemp(julyData)
- 
+  console.log(avgJulyTemp)
 }
 
 function errorHandler (evt) {
@@ -69,5 +69,12 @@ function rainyDays (monthData) {
 }
 
 function avgTemp (monthData) {
-  return monthData.redu
+  const tempData = monthData.map(data => {
+    return Number(data[1])
+  })
+  const sum = tempData.reduce((a, b) => {
+    return a + b
+  })
+  return sum / tempData.length
+  console.log('temp sum', sum)
 }
